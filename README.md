@@ -105,3 +105,30 @@ Restart Apache:
 sudo service apache2 restart
 ```
 This step will overwrite our Ruby version to an older one. To resolve this, simply remove the incorrect Ruby location and create a new symlink to the correct Ruby binary file:
+
+Apache config file
+```
+<VirtualHost *:80>
+    ServerName yappeg.vinova.sg 
+    ServerAlias yappge.vinova.sg
+    #ServerAlias 172.104.170.135
+
+    DocumentRoot /home/vinova/proj-yappeg/current/public
+
+    RailsEnv staging
+
+    PassengerRuby /home/vinova/.rvm/gems/ruby-2.4.0@yappeg/wrappers/ruby
+
+    <Directory /home/vinova/proj-yappeg/current/public>
+        # This relaxes Apache security settings.
+        #AllowOverride all
+        # MultiViews must be turned off.
+        #Options -MultiViews
+        # Uncomment this if you're on Apache >= 2.4:
+       # Require all granted
+	Options FollowSymLinks
+        Require all granted
+     </Directory>
+
+</VirtualHost>
+```
