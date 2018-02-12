@@ -58,7 +58,7 @@ create role rolename with createdb login password 'password';
 ##5. Install imagemagick
 ```
 apt-get install imagemagick
-apt-get install libmagick9-dev
+sudo apt-get install libmagickwand-dev
 gem install rmagick
 ```
 ##6. Install Passenger
