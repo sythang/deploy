@@ -31,7 +31,7 @@ sudo apt-get install apache2
 ```
 sudo apt-get update
 
-sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install postgresql postgresql-contrib libpq-dev
 
 createdb vto_commerce_development;
 
